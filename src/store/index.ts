@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+ import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './authSlice'
 import devicesReducer from './devicesSlice'
 

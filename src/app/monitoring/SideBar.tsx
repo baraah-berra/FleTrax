@@ -12,7 +12,7 @@ type Props = {
 }
 
 const SideBar = ({ devices }: Props) => {
-    const [location , setLocation] = useState({ lat: 44, lng: -80 })
+    const [location, setLocation] = useState({ lat: 44, lng: -80 })
     return (
         <div className='w-max h-max p-16 flex'>
             <Accordion variant="bordered" className='bg-white '>
@@ -23,12 +23,14 @@ const SideBar = ({ devices }: Props) => {
                         <Table
                             color='primary'
                             shadow='none'
-                            selectionMode="multiple"
+                            selectionMode="single"
                             aria-label="Example static collection table"
                             classNames={{
                                 wrapper: "p-0",
                                 th: "bg-transparent",
                             }}
+                            onSelectionChange={(e: any) => console.log(e.currentKey)
+                            }
                         >
                             <TableHeader>
                                 <TableColumn>
@@ -49,7 +51,7 @@ const SideBar = ({ devices }: Props) => {
                             </TableHeader>
                             <TableBody>
                                 {devices?.map((device: any, i: number) => (
-                                    <TableRow key={i}>
+                                    <TableRow key={`{lat:${device.telemetry.position.latitude},lng:${device.telemetry.position.longitude}}`} textValue={`{${device.telemetry.latitude},${device.telemetry.longitude}}`}>
                                         <TableCell>{device.name}</TableCell>
                                         <TableCell className='flex items-center gap-2'>
                                             <TurnOff active={device.telemetry['engine.ignition.status']} />

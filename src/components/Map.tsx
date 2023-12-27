@@ -1,5 +1,5 @@
 "use client"
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 type Props = {
     location: {
@@ -11,7 +11,12 @@ export default function Map({ location }: Props) {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     });
-    const center = useMemo(() => (location), []);
+
+    const [center, setCenter] = useState(useMemo(() => (location), []));
+
+    useEffect(() => {
+        setCenter(location)
+    }, [location]);
 
     if (!isLoaded) return <div>Loading...</div>;
 
