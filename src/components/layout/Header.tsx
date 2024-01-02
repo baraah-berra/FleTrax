@@ -18,12 +18,11 @@ const Headers = (props: Props) => {
     const userData = useSelector(selectUserData);
 
     useEffect(() => {
-        // Dispatch the fetchUserData action when the component mounts
         dispatch(fetchUserData());
     }, [dispatch]);
 
     return (
-        <div className='flex items-center justify-between pt-7  px-14 w-full'>
+        <div className='flex items-center justify-between pt-7  px-14 pb-7 w-full'>
             <Link href={'/'}>
                 <Image src="/assets/images/logo.svg" width={300} height={75} alt="logo" />
             </Link>

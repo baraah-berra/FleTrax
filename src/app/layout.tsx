@@ -24,10 +24,12 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-100 h-screen w-screen`}>
         <Providers>
           <AuthRedirected>
-            <div className='flex flex-wrap'>
-              <Headers />
+            <Headers />
+            <div className='flex'>
               <SideBar />
-              {children}
+              <div className="w-full">
+                {children}
+              </div>
             </div>
           </AuthRedirected>
         </Providers>

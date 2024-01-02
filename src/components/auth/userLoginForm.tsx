@@ -57,7 +57,7 @@ function UserLoginForm({ }: Props) {
                     label="User Name"
                     variant="flat" radius="sm"
                     name='username'
-                    isInvalid={formik.touched.username}
+                    isRequired
                     onChange={formik.handleChange}
                     defaultValue={formik.values.username}
                     errorMessage={formik.touched.username && formik.errors.username}
@@ -72,8 +72,8 @@ function UserLoginForm({ }: Props) {
                     label="Password"
                     placeholder="Enter your password"
                     labelPlacement="outside" radius="sm"
+                    isRequired
                     name='password'
-                    isInvalid={formik.touched.password}
                     onChange={formik.handleChange}
                     defaultValue={formik.values.password}
                     errorMessage={formik.touched.password && formik.errors.password}
