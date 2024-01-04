@@ -3,9 +3,11 @@ import PlusIcon from '@/components/icons/PlusIcon'
 import SearchIcon from '@/components/icons/SearchIcon'
 import TrashIcon from '@/components/icons/TrashIcon'
 import { fetchDevices } from '@/store/devicesSlice'
-import { Button, Card, CardBody, Divider, Input, Spinner, Tab, Tabs } from '@nextui-org/react'
+import { Button, Card, CardBody, Divider, Input, Spinner, Tab, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tabs } from '@nextui-org/react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Telemetry from './_Telemetry'
+import Commands from './_Commands'
 
 type Props = {}
 
@@ -22,7 +24,7 @@ const page = (props: Props) => {
 
   useEffect(() => {
     const getDevices = async () => {
-      await dispatch(fetchDevices());
+      await dispatch(fetchDevices("id,last_active,name,telemetry,commands"));
     }
 
     getDevices()
@@ -33,11 +35,11 @@ const page = (props: Props) => {
     }
   }, [devices]);
 
-  console.log(devices);
+
   return (
-    <div className='px-10 grid grid-cols-12 gap-5'>
+    <div className='px-10 grid grid-cols-12 gap-5 h-full pb-10 py-2'>
       <div className='p-10 bg-white rounded-lg box-shadow col-span-3'>
-        <div className="flex gap-3">
+        <div className="flex gap-3 max-h-full">
           <Input variant='flat' size='sm' radius="sm" className='bg-white' startContent={<SearchIcon />} classNames={{
             inputWrapper: "!bg-white shadow-medium"
           }} />
@@ -45,7 +47,7 @@ const page = (props: Props) => {
             <PlusIcon />
           </Button>
         </div>
-        <div className='flex flex-col mt-7 gap-5'>
+        <div className='flex flex-col mt-7 gap-5 max-h-full'>
           {status == 'loading' ? <Spinner /> :
             devices.map((device: any, i: number) => (
               <Button variant='light' size='lg' className={`flex flex-wrap box-shadow p-6 rounded-lg gap-2 fill-primary h-auto hover:!bg-primary-100 ${(selectedDevice && selectedDevice.id) == device.id && 'bg-primary-100 text-white'}`} onClick={() => setSelectedDevice(device)}>
@@ -74,34 +76,22 @@ const page = (props: Props) => {
         >
           <Tab key="attributes" title="All Attributes">
             <Card className='box-shadow rounded-lg'>
-              <CardBody className='p-12'>
-                {!selectedDevice ? <Spinner /> :
-                  <>
-                    <h1 className='text-primary mb-10'>{selectedDevice.name}</h1>
-                    <Divider />
-                    <div className="grid grid-cols-4 gap-8">
-                      {/* {selectedDevice.telemetry.map((item: any, i: number) => (
-                        <div className="div">
-
-                        </div>
-                      ))} */}
-                    </div>
-                  </>
-                }
+              <CardBody className='p-12 mb-7'>
+                <Telemetry selectedDevice={selectedDevice} />
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="music" title="Music">
-            <Card>
+          <Tab key="basic" title="Basic">
+            <Card className='box-shadow rounded-lg'>
               <CardBody>
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="videos" title="Videos">
-            <Card>
-              <CardBody>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <Tab key="commands" title="commands">
+            <Card className='box-shadow rounded-lg'>
+              <CardBody className='p-12 mb-7'>
+                <Commands  selectedDevice={selectedDevice}  />
               </CardBody>
             </Card>
           </Tab>

@@ -13,7 +13,7 @@ import UserDropDown from './UserDropDown'
 
 type Props = {}
 
-const Headers = (props: Props) => {
+const Header = (props: Props) => {
     const dispatch = useDispatch<AppDispatch>();
     const userData = useSelector(selectUserData);
 
@@ -35,4 +35,4 @@ const Headers = (props: Props) => {
     )
 }
 
-export default Headers
+export default Header

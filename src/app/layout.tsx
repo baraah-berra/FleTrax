@@ -8,7 +8,7 @@ import { selectToken } from '@/store/authSlice';
 import { useSelector } from 'react-redux';
 import LoginForm from '@/components/auth/login';
 import AuthRedirected from './authRedirected';
-import Headers from '@/components/layout/Header';
+import Header from '@/components/layout/Header';
 import SideBar from '@/components/layout/SideBar';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,10 +24,10 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-100 h-screen w-screen`}>
         <Providers>
           <AuthRedirected>
-            <Headers />
+            <Header />
             <div className='flex'>
               <SideBar />
-              <div className="w-full">
+              <div className="w-full h-full page-content overflow-auto">
                 {children}
               </div>
             </div>

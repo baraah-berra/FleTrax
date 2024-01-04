@@ -1,12 +1,15 @@
+import { fetchDashboardData } from './dashboard';
  import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './authSlice'
 import devicesReducer from './devicesSlice'
+import dashboardReducer from './dashboard'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
         auth: authReducer,
         devices: devicesReducer, 
+        dashboard: dashboardReducer, 
     }
   })
 }

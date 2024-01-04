@@ -23,16 +23,17 @@ const initialState: DevicesState = {
 
 export const fetchDevices = createAsyncThunk(
     'devices/fetchDevices',
-    async () => {
+    async (fields : string) => {
         try {
             const token = localStorage.getItem('token');
+            
             const response = await axios({
                 method: 'GET',
                 url: process.env.NEXT_PUBLIC_API_URL + 'devices/index',
                 headers: { Authorization: `Bearer ${token}` },
-                data: {
+                params: {
                     search_query: "all",
-                    fields: "id,device_type_id,protocol_id,configuration,commands,messages_size,messages_ttl,messages_rotate,media_size,media_ttl,media_rotate,blocked,media_blocked,connected,last_active,cid,telemetry,settings,commands_queue,groups,plugins,streams,calcs,metadata,name,device_type_name,protocol_name"
+                    fields, 
                 }
             });
 

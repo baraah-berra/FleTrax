@@ -19,7 +19,6 @@ interface AuthState {
     token: string | null | undefined;
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null | undefined;
-
 }
 
 interface LoginResponse {
@@ -38,20 +37,26 @@ export const loginAsync = createAsyncThunk<LoginResponse, FormData>('auth/login'
     return response.data;
 });
 
-export const fetchUserData = createAsyncThunk<any, FormData>('auth/fetchUserData', async (_, { getState }) => {
-    const token = localStorage.getItem('token');
+export const fetchUserData = createAsyncThunk<any, FormData>('auth/fetchUserData', async (_, { getState, dispatch }) => {
+    try {
 
-    if (!token) {
-        throw new Error('Token is not available');
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            throw new Error('Token is not available');
+        }
+
+        const response: AxiosResponse<UserData> = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}users/current_user`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response.data.data;
+    } catch (error) {
+        dispatch(setLoggedOut());
+        return [];
     }
-
-    const response: AxiosResponse<UserData> = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}users/current_user`, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-
-    return response.data.data;
 });
 export const logoutAsync = createAsyncThunk<void, void>('auth/logout', async (_, { dispatch }) => {
     dispatch(setLoggedOut());
