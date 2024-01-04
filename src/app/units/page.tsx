@@ -8,6 +8,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Telemetry from './_Telemetry'
 import Commands from './_Commands'
+import Basic from './_Basic'
 
 type Props = {}
 
@@ -24,7 +25,7 @@ const page = (props: Props) => {
 
   useEffect(() => {
     const getDevices = async () => {
-      await dispatch(fetchDevices("id,last_active,name,telemetry,commands"));
+      await dispatch(fetchDevices("id,last_active,name,telemetry,commands,device_type_name"));
     }
 
     getDevices()
@@ -50,7 +51,7 @@ const page = (props: Props) => {
         <div className='flex flex-col mt-7 gap-5 max-h-full'>
           {status == 'loading' ? <Spinner /> :
             devices.map((device: any, i: number) => (
-              <Button variant='light' size='lg' className={`flex flex-wrap box-shadow p-6 rounded-lg gap-2 fill-primary h-auto hover:!bg-primary-100 ${(selectedDevice && selectedDevice.id) == device.id && 'bg-primary-100 text-white'}`} onClick={() => setSelectedDevice(device)}>
+              <Button key={i} variant='light' size='lg' className={`flex flex-wrap box-shadow p-6 rounded-lg gap-2 fill-primary h-auto hover:!bg-primary-100 ${(selectedDevice && selectedDevice.id) == device.id && 'bg-primary-100 text-white'}`} onClick={() => setSelectedDevice(device)}>
                 <div className='flex flex-col w-3/4'>
                   <p className='text-black font-semibold text-xs'>{device.name}</p>
                   <p className='text-black font-extralight text-xs'></p>
@@ -84,14 +85,14 @@ const page = (props: Props) => {
           <Tab key="basic" title="Basic">
             <Card className='box-shadow rounded-lg'>
               <CardBody>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <Basic selectedDevice={selectedDevice} />
               </CardBody>
             </Card>
           </Tab>
           <Tab key="commands" title="commands">
             <Card className='box-shadow rounded-lg'>
               <CardBody className='p-12 mb-7'>
-                <Commands  selectedDevice={selectedDevice}  />
+                <Commands selectedDevice={selectedDevice} />
               </CardBody>
             </Card>
           </Tab>

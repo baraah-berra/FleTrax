@@ -32,7 +32,7 @@ export default function Page() {
         {dashboardData && dashboardData.map((item: any, i: number) => {
           if (item.type == 'devices_status') {
             return (
-              <Card className='col-span-4 box-shadow p-6'>
+              <Card className='col-span-4 box-shadow p-6' key={i}>
                 <CardHeader className='flex flex-wrap justify-between gap-4 p-0'>
                   <h2 className='text-amber-400 text-xl font-semibold '>
                     {item.name}
@@ -69,7 +69,7 @@ export default function Page() {
           }
           if (item.type == "motion_status" || item.type == "geofence" || item.type == "unit_types" && item.items.length < 0) {
             return (
-              <Card className='col-span-4 box-shadow p-6'>
+              <Card className='col-span-4 box-shadow p-6'  key={i}>
                 <CardHeader className='flex flex-wrap justify-center gap-4 p-0'>
                   <h2 className='text-amber-400 text-xl font-semibold '>
                     {item.name}
@@ -78,7 +78,7 @@ export default function Page() {
                 </CardHeader>
                 <CardBody className='flex flex-col gap-6 p-0 pt-6 overflow-visible'>
                   {item.items.map((subItem: any, i: number) => (
-                    <div className='p-4 bg-indigo-50 rounded-lg shadow border-l-4 border-indigo-500 justify-between items-center inline-flex'>
+                    <div className='p-4 bg-indigo-50 rounded-lg shadow border-l-4 border-indigo-500 justify-between items-center inline-flex'  key={i}>
                       <p className="text-neutral-800 text-sm font-semibold leading-tight">
                         {subItem.name}
                       </p>
@@ -95,7 +95,7 @@ export default function Page() {
             const sortedItems = item.items.slice().sort((a: any, b: any) => b.value - a.value)
             
             return (
-              <Card className='col-span-4 box-shadow p-6'>
+              <Card className='col-span-4 box-shadow p-6'  key={i}>
                 <CardHeader className='flex flex-wrap justify-center gap-4 p-0'>
                   <h2 className='text-amber-400 text-xl font-semibold '>
                     {item.name}
@@ -106,7 +106,7 @@ export default function Page() {
                   <table className="border-separate border-spacing-y-6">
                     <tbody>
                       {sortedItems.map((subItem: any, i: number) => (
-                        <tr>
+                        <tr key={i}>
                           <td>
                             <p className="text-neutral-800 text-sm font-semibold leading-tight">
                               {subItem.name}

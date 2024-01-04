@@ -2,7 +2,7 @@ import PlusIcon from '@/components/icons/PlusIcon'
 import SearchIcon from '@/components/icons/SearchIcon'
 import SendIcon from '@/components/icons/SendIcon'
 import TrashIcon from '@/components/icons/TrashIcon'
-import { Button, Input, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
+import { Button, Input, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
 import React from 'react'
 
 type Props = {
@@ -10,6 +10,9 @@ type Props = {
 }
 
 function Commands({ selectedDevice }: Props) {
+    if (!selectedDevice) {
+        return <Spinner />
+    }
     return (
         <>
             <div className="header flex justify-between items-center mb-10">
@@ -27,13 +30,18 @@ function Commands({ selectedDevice }: Props) {
             </div>
             <Table
                 color='primary'
-                selectionMode="multiple"
                 aria-label="Example static collection table"
                 classNames={{
-                    wrapper: "border-1 shadow-none",
+                    base: "!rounded-none",
+                    wrapper: "border-0 p-0 shadow-none before:!rounded-none",
+                    th: "!rounded-none bg-white border-1",
+                    thead: "rounded-none [&>*:nth-child(2)]:hidden",
+                    tr: "even:bg-primary-50 before:!rounded-none before:!rounded-none",
+                    td: "before:!rounded-none border-1"
                 }}
             >
                 <TableHeader>
+                    <TableColumn>id</TableColumn>
                     <TableColumn>NAME</TableColumn>
                     <TableColumn>Time</TableColumn>
                     <TableColumn>Action</TableColumn>
@@ -41,6 +49,7 @@ function Commands({ selectedDevice }: Props) {
                 <TableBody>
                     {selectedDevice.commands.map((command: any, i: number) => (
                         <TableRow key={i}>
+                            <TableCell>{command.id}</TableCell>
                             <TableCell>{command.name}</TableCell>
                             <TableCell>{command.time}</TableCell>
                             <TableCell className='text-center'>
@@ -49,8 +58,7 @@ function Commands({ selectedDevice }: Props) {
                                 </Button>
                             </TableCell>
                         </TableRow>
-                    ))
-                    }
+                    ))}
                 </TableBody>
             </Table>
         </>

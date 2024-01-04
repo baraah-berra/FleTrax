@@ -16,8 +16,8 @@ function Telemetry({ selectedDevice }: Props) {
             <div className="grid grid-cols-4 gap-8 pt-10">
                 {selectedDevice.telemetry && Object.entries(selectedDevice.telemetry).map(([key, value]) => (
                     <>
-                        <div className={`bg-primary-50 p-6 rounded-md shadow-md flex flex-col justify-center items-center gap-3  ${value == false && "!bg-danger-50"} ${value == true && "bg-success-50"}`}>
-                            <p className=' text-primary text-sm whitespace-nowrap text-ellipsis overflow-hidden max-w-ful'>a{key}</p>
+                        <div key={key} className={`bg-primary-50 p-6 rounded-md shadow-md flex flex-col justify-center items-center gap-3  ${value == false && "!bg-danger-50"} ${value == true && "bg-success-50"}`}>
+                            <p className=' text-primary text-sm whitespace-nowrap text-ellipsis overflow-hidden max-w-ful'>{key}</p>
                             <p className=' text-black text-md text-sm whitespace-nowrap text-ellipsis overflow-hidden max-w-full'>
                                 {JSON.stringify(value)}
                             </p>
