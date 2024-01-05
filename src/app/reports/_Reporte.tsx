@@ -26,7 +26,6 @@ const Report = ({ slug }: Props) => {
     if (!report) {
         return <PageLoader />
     }
-    console.log(report);
 
     return (
         <div>
@@ -63,8 +62,8 @@ const Report = ({ slug }: Props) => {
                 <TableBody>
                     {report.map((row: any, i: number) => (
                         <TableRow key={i}>
-                            {Object.values(row).map((value: any, i) => (
-                                <TableCell key={value}>{value}</TableCell>
+                            {Object.values(row).map((value: any, i: number) => (
+                                <TableCell key={i}>{value}</TableCell>
                             ))}
                         </TableRow>
                     ))}
