@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux'
 type Props = {
     slug: string
 }
-
 const Report = ({ slug }: Props) => {
     const [page, setPage] = React.useState(1);
     const dispatch = useDispatch<any>();
@@ -63,7 +62,10 @@ const Report = ({ slug }: Props) => {
                     {report.map((row: any, i: number) => (
                         <TableRow key={i}>
                             {Object.values(row).map((value: any, i: number) => (
-                                <TableCell key={i}>{value}</TableCell>
+                                <TableCell key={value}>
+                                    {console.log(value.length ,row.length)}
+                                    {value}
+                                </TableCell>
                             ))}
                         </TableRow>
                     ))}

@@ -4,7 +4,8 @@ import { Card, CardBody, Tab, Tabs } from '@nextui-org/react'
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Report from './_Reporte'
+import MileageReport from './_MileageReport'
+import Report from './_Report'
 
 type Props = {}
 
