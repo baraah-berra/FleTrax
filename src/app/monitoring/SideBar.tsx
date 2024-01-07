@@ -6,7 +6,6 @@ import TurnOff from '@/components/icons/TurnOff'
 import SearchIcon from '@/components/icons/SearchIcon'
 import RestartIcon from '@/components/icons/RestartIcon'
 import MoreIcon from '@/components/icons/MoreIcon'
-import Map from '@/components/Map'
 type Props = {
     devices: any
 }
@@ -65,7 +64,7 @@ const SideBar = ({ devices }: Props) => {
                     </>
                 </AccordionItem>
             </Accordion>
-            <Map location={location} />
+            {/* <Map location={location} /> */}
         </div>
     )
 }

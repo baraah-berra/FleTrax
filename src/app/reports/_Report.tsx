@@ -63,7 +63,6 @@ const Report = ({ slug }: Props) => {
                         <TableRow key={i}>
                             {Object.values(row).map((value: any, i: number) => (
                                 <TableCell key={value}>
-                                    {console.log(value.length ,row.length)}
                                     {value}
                                 </TableCell>
                             ))}

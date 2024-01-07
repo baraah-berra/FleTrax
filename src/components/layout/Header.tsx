@@ -18,7 +18,7 @@ const Header = (props: Props) => {
     const userData = useSelector(selectUserData);
 
     useEffect(() => {
-        dispatch(fetchUserData());
+        dispatch(fetchUserData(''));
     }, [dispatch]);
 
     return (

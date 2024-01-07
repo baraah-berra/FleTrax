@@ -37,7 +37,7 @@ export const loginAsync = createAsyncThunk<LoginResponse, FormData>('auth/login'
     return response.data;
 });
 
-export const fetchUserData = createAsyncThunk<any, FormData>('auth/fetchUserData', async (_, { getState, dispatch }) => {
+export const fetchUserData = createAsyncThunk<any, any>('auth/fetchUserData', async (_, { getState, dispatch }) => {
     try {
 
         const token = localStorage.getItem('token');
