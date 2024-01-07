@@ -6,10 +6,10 @@ import { Providers } from "./providers";
 import { useEffect, useState } from 'react';
 import { selectToken } from '@/store/authSlice';
 import { useSelector } from 'react-redux';
-import LoginForm from '@/components/auth/login';
+import LoginForm from '@/app/components/auth/login';
 import AuthRedirected from './authRedirected';
-import Header from '@/components/layout/Header';
-import SideBar from '@/components/layout/SideBar';
+import Header from '@/app/components/layout/Header';
+import SideBar from '@/app/components/layout/SideBar';
 
 const inter = Inter({ subsets: ['latin'] })
 

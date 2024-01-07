@@ -1,6 +1,6 @@
 "use client"
-import TrashIcon from '@/components/icons/TrashIcon'
-import PageLoader from '@/components/layout/PageLoader'
+import TrashIcon from '@/app/components/icons/TrashIcon'
+import PageLoader from '@/app/components/layout/PageLoader'
 import { fetchReport } from '@/store/reports'
 import { Button, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
 import React, { useEffect } from 'react'

@@ -1,7 +1,7 @@
-import { fetchDashboardData } from './dashboard';
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './authSlice'
-import devicesReducer from './devicesSlice'
+import devicesReducer from './devices'
+import vehiclesReducer from './vehicles'
 import dashboardReducer from './dashboard'
 import usersReducer from './users'
 import reportsReducer from './reports'
@@ -11,6 +11,7 @@ export const makeStore = () => {
     reducer: {
       auth: authReducer,
       devices: devicesReducer,
+      vehicles: vehiclesReducer,
       reports: reportsReducer,
       dashboard: dashboardReducer,
       users: usersReducer,

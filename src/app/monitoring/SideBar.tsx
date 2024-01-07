@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react'
 import { Accordion, AccordionItem, Button, Input, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
-import DeiceStatus from '@/components/icons/DeiceStatus'
-import TurnOff from '@/components/icons/TurnOff'
-import SearchIcon from '@/components/icons/SearchIcon'
-import RestartIcon from '@/components/icons/RestartIcon'
-import MoreIcon from '@/components/icons/MoreIcon'
+import DeiceStatus from '@/app/components/icons/DeiceStatus'
+import TurnOff from '@/app/components/icons/TurnOff'
+import SearchIcon from '@/app/components/icons/SearchIcon'
+import RestartIcon from '@/app/components/icons/RestartIcon'
+import MoreIcon from '@/app/components/icons/MoreIcon'
 type Props = {
     devices: any
 }

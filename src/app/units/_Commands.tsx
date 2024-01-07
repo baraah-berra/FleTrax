@@ -1,7 +1,7 @@
-import PlusIcon from '@/components/icons/PlusIcon'
-import SearchIcon from '@/components/icons/SearchIcon'
-import SendIcon from '@/components/icons/SendIcon'
-import TrashIcon from '@/components/icons/TrashIcon'
+import PlusIcon from '@/app/components/icons/PlusIcon'
+import SearchIcon from '@/app/components/icons/SearchIcon'
+import SendIcon from '@/app/components/icons/SendIcon'
+import TrashIcon from '@/app/components/icons/TrashIcon'
 import { Button, Input, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
 import React from 'react'
 

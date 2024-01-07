@@ -25,14 +25,14 @@ const initialState: ReportsState = {
 
 export const fetchReport = createAsyncThunk(
     'reports/fetchReport',
-    async (slug: string, params: object) => {
+    async ({ slug, params  }: { slug: string; params?: any }) => {
         try {
             const token = localStorage.getItem('token');
             const response = await axios({
                 method: 'GET',
                 url: `${process.env.NEXT_PUBLIC_API_URL}reports/${slug}`,
                 headers: { Authorization: `Bearer ${token}` },
-                params,
+                params, 
             });
 
             return response.data as Report; // Return a single report

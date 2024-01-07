@@ -1,7 +1,7 @@
 "use client"
-import PageLoader from '@/components/layout/PageLoader'
+import PageLoader from '@/app/components/layout/PageLoader'
 import { AppDispatch } from '@/store'
-import { fetchDevices } from '@/store/devicesSlice'
+import { fetchDevices } from '@/store/devices'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SideBar from './SideBar'

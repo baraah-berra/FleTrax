@@ -1,8 +1,8 @@
 "use client"
-import PlusIcon from '@/components/icons/PlusIcon'
-import SearchIcon from '@/components/icons/SearchIcon'
-import TrashIcon from '@/components/icons/TrashIcon'
-import { fetchDevices } from '@/store/devicesSlice'
+import PlusIcon from '@/app/components/icons/PlusIcon'
+import SearchIcon from '@/app/components/icons/SearchIcon'
+import TrashIcon from '@/app/components/icons/TrashIcon'
+import { fetchDevices } from '@/store/devices'
 import { Button, Card, CardBody, Divider, Input, Spinner, Tab, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tabs } from '@nextui-org/react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

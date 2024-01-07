@@ -1,5 +1,5 @@
 "use client"
-import LoginForm from '@/components/auth/login';
+import LoginForm from '@/app/components/auth/login';
 import { selectToken } from '@/store/authSlice';
 import { Spinner } from '@nextui-org/react';
 import React, { useEffect, useMemo, useState } from 'react'

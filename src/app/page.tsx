@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDashboardData } from '@/store/dashboard';
 import { Card, CardBody, CardHeader, Divider, Progress } from '@nextui-org/react';
-import CarIcon from '@/components/icons/CarIcon';
-import WifiOnIcon from '@/components/icons/WifiOnIcon';
-import WifiOnIcOff from '@/components/icons/WifiOnIcOff';
-import PageLoader from '@/components/layout/PageLoader';
-import NoteIcon from '@/components/icons/NotIcon';
-import PinIcon from '@/components/icons/PinIcon';
+import CarIcon from '@/app/components/icons/CarIcon';
+import WifiOnIcon from '@/app/components/icons/WifiOnIcon';
+import WifiOnIcOff from '@/app/components/icons/WifiOnIcOff';
+import PageLoader from '@/app/components/layout/PageLoader';
+import NoteIcon from '@/app/components/icons/NotIcon';
+import PinIcon from '@/app/components/icons/PinIcon';
 
 
 export default function Page() {
