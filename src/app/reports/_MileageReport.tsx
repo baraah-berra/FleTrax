@@ -17,7 +17,7 @@ const MileageReport = ({ slug }: Props) => {
 
     useEffect(() => {
         const getReport = async () => {
-            await dispatch(fetchReport(slug));
+            await dispatch(fetchReport({slug}));
         }
 
         getReport();
